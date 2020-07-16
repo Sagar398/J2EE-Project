@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+<%@ page import="model.BookModel"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>list-books</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-<script src="js/jquery-3.5.1.min.js"></script>
+ <script src="js/jquery-3.5.1.min.js"></script>   
 <script src="js/jquery.tablesorter.min.js"></script>
-
+<% 
+	List<BookModel>books=(List<BookModel>)request.getAttribute("booklist");
+%>
 	<style>
 		 table, th, td {
 		text-align: center;
@@ -48,67 +52,35 @@
 				</tr>
 			</thead>
 			<tbody id="myresults">
-				<tr>
-					<td>1</td>
-					<td>J2EE</td>
-					<td>O'Really</td>
-					<td>JE2058</td>
-					<td>2500.36</td>
-					<td>10</td>
+				<%for(BookModel b: books)
+					{%>
+					<tr>
+						<td><%=b.getBookId() %></td>
+						<td><%=b.getBookName() %></td>
+						<td><%=b.getBookPublication()%></td>
+						<td><%=b.getBookIsbn() %></td>
+						<td><%=b.getBookPrice() %></td>
+						<td><%=b.getBookQty() %></td>
 					<td>
-					<a href="update-books">
-					<button class="btn btn-primary btn-sm">Update</button></a>
-					<a href="delete-books"><button class="btn btn-danger btn-sm">Delete</button></a></td>
-				</tr>
-
-				<tr>
-					<td>2</td>
-					<td>Wt</td>
-					<td>R'Really</td>
-					<td>KE2058</td>
-					<td>2600.36</td>
-					<td>20</td>
-					<td><a href="update-books"><button class="btn btn-primary btn-sm">Update</button></a>
-						<button class="btn btn-danger btn-sm">Delete</button></td>
-				</tr>
-
-				<tr>
-					<td>3</td>
-					<td>JS</td>
-					<td>S'Really</td>
-					<td>LE2058</td>
-					<td>2700.36</td>
-					<td>30</td>
-					<td><a href="update-books"><button class="btn btn-primary btn-sm">Update</button></a>
-						<button class="btn btn-danger btn-sm">Delete</button></td>
-				</tr>
-
-				<tr>
-					<td>4</td>
-					<td>Angular JS</td>
-					<td>u'Really</td>
-					<td>ME2058</td>
-					<td>2800.36</td>
-					<td>40</td>
-					<td><a href="update-books"><button class="btn btn-primary btn-sm">Update</button></a>
-						<button class="btn btn-danger btn-sm">Delete</button></td>
-				</tr>
+					<a href=""><button class="btn btn-success btn-sm">Update</button></a>
+					<a href="deletestudent?bid=<%=b.getBookId()%>"><button class="btn btn-danger btn-sm">Delete</button></a>
+					</td>
+					</tr>
+					<%}%>
 			</tbody>
 		</table>
 	</div>
-	<script >
-	 $(document).ready(function() {
-		$("#myinput").on("keyup", function() {
-			var value=$(this).val().toLowerCase();
-			$("myresults tr").filter(function() {
-				$(this).toggle($(this).text().toLowerCase().indexOf(value)> -1)
-				
-			});
-			
-		}) ;
-		 
-	 });
-	</script>
+	
+	<script>
+	$(document).ready(function(){
+	  $("#myinput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#myresults tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
+</script>
 	
 	<script >
 	 $(function(){

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -70,7 +71,12 @@ public class BookController extends HttpServlet
 	{
 
 	}
-
+	//Display HTML Form
+	private void savebooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+	{
+		RequestDispatcher rd = req.getRequestDispatcher("add-books.jsp");
+		rd.forward(req, resp);
+	}
 	//Process HTML Form
 	private void insertbooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
@@ -111,13 +117,6 @@ public class BookController extends HttpServlet
 		rd.forward(req, resp);
 	}
 
-	//Display HTML Form
-	private void savebooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
-	{
-		RequestDispatcher rd = req.getRequestDispatcher("add-books.jsp");
-		rd.forward(req, resp);
-	}
-
 	private void purchasebooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
 		RequestDispatcher rd = req.getRequestDispatcher("purchase-books.jsp");
@@ -126,7 +125,15 @@ public class BookController extends HttpServlet
 
 	private void showbooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
+		//Call The Method of DAO Class
+		List<BookModel> allbooks=bdata.getAllBooks();
+		
+		//Add Books To The Request
+		req.setAttribute("booklist", allbooks);
+		
+		//Send The Output To JSP File
 		RequestDispatcher rd = req.getRequestDispatcher("list-books.jsp");
 		rd.forward(req, resp);
+		
 	}
 }
