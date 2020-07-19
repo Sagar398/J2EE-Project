@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="model.BookModel"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 <title>Update Book Details</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 <script type="text/javascript" src="js/validation.js"></script>
+<% BookModel bmodel=(BookModel)request.getAttribute("book"); %>
 <style>
 	.container{
 	border:red solid 1px;
@@ -17,33 +19,30 @@
 <body>
 <br>
 	<div class="container">
-<jsp:include page="header.html"></jsp:include>
+		<jsp:include page="header.html"></jsp:include>
 		<hr>
 		<h1>Update Book Details</h1>
 		<hr>
-		<form action="modifiedbook">
+		<form action="modifybook">
+			<input type="hidden" name="bookid" value="<%=bmodel.getBookId()%>"/>
 			<div class="form-group">
-				<input type="text" id="bookname" class="form-control" onfocusout="validateBookname()" placeholder="Enter Book Name"/>
-				<div id="booknameerror" style="color:red"></div>	
+				<input type="text" name="bookname" id="bookname" class="form-control" value="<%=bmodel.getBookName() %>" onfocusout="validateBookname()" placeholder="ENTER BOOK NAME" />
+				<div id="booknameerror" style="color:red"></div>
 			</div>
-			
 			<div class="form-group">
-				<input type="text" id="publication" class="form-control" onfocusout="validatePublication()" placeholder="Enter Name of Publication"/>
+				<input type="text" name="publication" id="publication" class="form-control" value="<%=bmodel.getBookPublication() %>" onfocusout="validatePublication()" placeholder="ENTER NAME OF PUBLICATION" />
 				<div id="publicationerror" style="color:red"></div>
 			</div>
-			
 			<div class="form-group">
-				<input type="text" id="isbn" class="form-control" onfocusout="validateIsbn()" placeholder="Enter Book ISBN No."/>
+				<input type="text" name="isbn" id="isbn" class="form-control" value="<%=bmodel.getBookIsbn() %>" onfocusout="validateIsbn()" placeholder="ENTER BOOK ISBN NO" />
 				<div id="isbnerror" style="color:red"></div>
 			</div>
-			
 			<div class="form-group">
-				<input type="text" id="price" class="form-control" onfocusout="validatePrice()" placeholder="Enter Book Price"/>
+				<input type="text" name="price" id="price" class="form-control" value="<%=bmodel.getBookPrice() %>" onfocusout="validatePrice()" placeholder="ENTER BOOK PRICE" />
 				<div id="priceerror" style="color:red"></div>
 			</div>
-			
 			<div class="form-group">
-				<input type="text" id="qty" class="form-control" onfocusout="validateQty()" placeholder="Enter Book Qty"/>
+				<input type="text" name="qty" id="qty" class="form-control" value="<%=bmodel.getBookQty() %>" onfocusout="validateQty()" placeholder="ENTER BOOK QTY" />
 				<div id="qtyerror" style="color:red"></div>
 			</div>
 			<div class="form-group">
@@ -51,6 +50,5 @@
 			</div>
 		</form>
 	</div>
-</div>
 </body>
 </html>

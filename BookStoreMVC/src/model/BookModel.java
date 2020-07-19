@@ -1,5 +1,5 @@
 package model;
-//DTO Class Or Java Bean Class
+//DTO Class or Java Bean Class
 public class BookModel 
 {
 	private int bookId;
@@ -8,40 +8,55 @@ public class BookModel
 	private String bookIsbn;
 	private double bookPrice;
 	private int bookQty;
-	public int getBookId() {
+	
+	public int getBookId() 
+	{
 		return bookId;
 	}
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
-	public String getBookName() {
+	public String getBookName() 
+	{
 		return bookName;
 	}
-	public void setBookName(String bookName) {
-		this.bookName = bookName;
-	}
-	public String getBookPublication() {
+	public String getBookPublication()
+	{
 		return bookPublication;
 	}
-	public void setBookPublication(String bookPublication) {
-		this.bookPublication = bookPublication;
-	}
-	public String getBookIsbn() {
+	public String getBookIsbn() 
+	{
 		return bookIsbn;
 	}
-	public void setBookIsbn(String bookIsbn) {
-		this.bookIsbn = bookIsbn;
-	}
-	public double getBookPrice() {
+	public double getBookPrice()
+	{
 		return bookPrice;
 	}
-	public void setBookPrice(double bookPrice) {
-		this.bookPrice = bookPrice;
-	}
-	public int getBookQty() {
+	public int getBookQty()
+	{
 		return bookQty;
 	}
-	public void setBookQty(int bookQty) {
+	public void setBookId(int bookId) 
+	{
+		this.bookId = bookId;
+	}
+	public void setBookName(String bookName) 
+	{
+		this.bookName = bookName;
+	}
+	public void setBookPublication(String bookPublication)
+	{
+		this.bookPublication = bookPublication;
+	}
+	public void setBookIsbn(String bookIsbn) 
+	{
+		this.bookIsbn = bookIsbn;
+	}
+	public void setBookPrice(double bookPrice)
+	{
+		this.bookPrice = bookPrice;
+	}
+	public void setBookQty(int bookQty)
+	{
 		this.bookQty = bookQty;
-	}	
+	}
+	
+	
 }

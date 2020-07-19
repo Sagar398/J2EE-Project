@@ -62,8 +62,8 @@
 						<td><%=b.getBookPrice() %></td>
 						<td><%=b.getBookQty() %></td>
 					<td>
-					<a href=""><button class="btn btn-success btn-sm">Update</button></a>
-					<a href="deletestudent?bid=<%=b.getBookId()%>"><button class="btn btn-danger btn-sm">Delete</button></a>
+					<a href="loadbook?bid=<%=b.getBookId()%>"><button class="btn btn-success btn-sm">Update</button></a>
+					<a href="delete-books?bid=<%=b.getBookId()%>" onclick="if(!(confirm('Are You Sure?'))) return false"><button class="btn btn-danger btn-sm">Delete</button></a>
 					</td>
 					</tr>
 					<%}%>

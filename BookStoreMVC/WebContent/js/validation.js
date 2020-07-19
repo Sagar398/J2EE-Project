@@ -24,6 +24,7 @@ function validateBookname()
 		else
 		{
 			document.getElementById("booknameerror").innerText = "";
+		document.getElementById("bookname").style.borderColor = "green";
 		}
 	}
 }
@@ -48,6 +49,7 @@ function validatePublication()
 		else
 		{
 			document.getElementById("publicationerror").innerText = "";
+			document.getElementById("publication").style.borderColor = "green";
 		}
 	}
 }
@@ -72,6 +74,7 @@ function validateIsbn()
 		else
 		{
 			document.getElementById("isbnerror").innerText = "";
+			document.getElementById("isbn").style.borderColor = "green";
 		}
 	}
 }
@@ -96,6 +99,7 @@ function validatePrice()
 		else
 		{
 			document.getElementById("priceerror").innerText = "";
+			document.getElementById("price").style.borderColor = "green";
 		}
 	}
 }
@@ -120,12 +124,13 @@ function validateQty()
 		else
 		{
 			document.getElementById("qtyerror").innerText = "";
+			document.getElementById("qty").style.borderColor = "green";
 		}
 	}
 }
 
 /*6*/
-/*function validateCopies()
+function validateCopies()
 {
 	var copies = document.getElementById("copies").value;
 	if(copies=="")
@@ -145,8 +150,9 @@ function validateQty()
 		else
 		{
 			document.getElementById("copieserror").innerText = "";
+			document.getElementById("copies").style.borderColor = "green";
 		}
 	}
-}*/
+}
 /*https://www.regextester.com/96986
 */
